@@ -297,6 +297,7 @@ def help_page():
 
   <h2 id="contact">Contact</h2>
   <p>Write to <a href="mailto:{EMAIL}">{EMAIL}</a>. Say which face and which watch you have, and what you see. A photo of the watch helps.</p>
+  <p>I read every email and usually reply within a few days. Fixes reach you as updates through the Connect IQ Store.</p>
 </article>"""
     return page("Help: thesako watch faces", "Settings, always-on mode, missing values and contact for the thesako watch faces.", body, "/help/")
 
