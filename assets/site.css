@@ -88,8 +88,8 @@ h2 { font-size: 26px; }
 .soon, .store { font-weight: 500; padding-left: 14px; border-left: 3px solid var(--accent); }
 .store a { font-weight: 600; }
 
-.colours { display: flex; gap: 20px; margin-top: 32px; flex-wrap: wrap; }
-.colours button { display: grid; justify-items: center; gap: 10px; padding: 4px; font-size: 15px; color: var(--graphite); }
+.colours { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 20px 8px; margin-top: 32px; max-width: 560px; }
+.colours button { display: grid; justify-items: center; align-content: start; gap: 10px; padding: 4px; font-size: 15px; line-height: 1.3; text-align: center; color: var(--graphite); }
 .colours img { width: 64px; height: 64px; border-radius: 50%; background: #000; outline: 1px solid var(--rule); outline-offset: 4px; }
 .colours button[aria-pressed="true"] { color: var(--ink); }
 .colours button[aria-pressed="true"] img { outline: 2px solid var(--accent); }
@@ -145,3 +145,4 @@ h2 { font-size: 26px; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+.nw { white-space: nowrap; }

@@ -29,7 +29,7 @@ FACES = [
                 "Edge gauges with their names printed along them: Body Battery™ on the left, stress on the right"],
          change="All 13 slots can be set from your phone, and most can be left empty: activity, health, battery, weather and time data, "
                 "depending on the slot and your watch.",
-         themes=GENERIC, alts=[1, 2]),
+         themes=GENERIC),
     dict(slug="signal-box", key="signalbox", name="Signal Box", accent="#B91C1C",
          tagline="A retro instrument-panel face with a heart-rate dial and segment bars.",
          intro=["Signal Box borrows from old control panels: a heart-rate dial with its own ring, a date block, a wide tabular time, "
@@ -42,7 +42,7 @@ FACES = [
                 "Footer line, sunset to start with"],
          change="Seven slots can be changed from your phone: the dial, the weather line, both bars, both rim gauges and the footer. "
                 "Most can also be switched off.",
-         themes=GENERIC, alts=[1, 2]),
+         themes=GENERIC),
     dict(slug="field-kit", key="fieldkit", name="Field Kit", accent="#B45309",
          tagline="Sunrise, sunset, Body Battery™ and a large time on one screen, for days outside.",
          intro=["Field Kit was drawn for hiking and long days out. The top holds a chamfered date tag and a small ringed dial, "
@@ -54,7 +54,7 @@ FACES = [
                 "Battery gauge showing days left, percent or just the icon"],
          change="The dial, both sides of the sun line, each tile and the battery display can be changed from your phone, "
                 "and most can be turned off.",
-         themes=GENERIC, alts=[1, 2]),
+         themes=GENERIC),
     dict(slug="conduit", key="conduit", name="Conduit", accent="#0F766E",
          tagline="Your last four hours of heart rate as a bar chart, under a two-tone time.",
          intro=["Conduit is the technical one in the set. Your heart rate sits at the top next to a 12-bar chart of the past four hours, "
@@ -67,7 +67,7 @@ FACES = [
                 "Two arc gauges rising from 6 o'clock: Body Battery™ and steps to start with"],
          change="The heart-rate chart stays put. The dial, the date line, both sides of the sun line and both arcs can be changed "
                 "from your phone, and the heart-rate value, date-line value and sun line can be hidden.",
-         themes=GENERIC, alts=[1, 2]),
+         themes=GENERIC),
     dict(slug="week-grid", key="weekgrid", name="Week Grid", accent="#0369A1",
          tagline="Seven days of steps in one strip, today highlighted, above a six-cell data grid.",
          intro=["The top of Week Grid is a bar for each of the last seven days, with today lit up. It shows steps, "
@@ -80,7 +80,7 @@ FACES = [
                 "Two curved side gauges: Body Battery™ and stress to start with"],
          change="Both gauges, the week strip, the weather line, all six cells and the battery display can be changed from your phone. "
                 "Most can be switched off.",
-         themes=GENERIC, alts=[1, 2]),
+         themes=GENERIC),
     dict(slug="gold-rule", key="goldrule", name="Gold Rule", accent="#8A6116",
          tagline="A quiet, gold-accented digital face with two ruled rows of data.",
          intro=["Gold Rule is the dressier face in the set. The full date sits at the top, the time between two ruled rows of "
@@ -92,7 +92,7 @@ FACES = [
                 "Footer pair: notifications and calories to start with",
                 "Two labelled arcs: Body Battery™ and stress to start with"],
          change="All ten data slots can be changed from your phone, and most can be left empty.",
-         themes=GENERIC, alts=[1, 2]),
+         themes=GENERIC),
     dict(slug="track-hybrid", key="trackhybrid", name="Track Hybrid", accent="#B45309",
          tagline="Hands over a seven-segment time, in the colours of old CRT, VFD, Nixie and LED displays.",
          intro=["Track Hybrid puts outline analog hands over a seven-segment time. Its colour presets are named after the "
@@ -103,7 +103,7 @@ FACES = [
                 "Four data fields: heart rate, battery days, temperature and notifications to start with",
                 "Footer, calories to start with"],
          change="Every field and gauge can be changed from your phone, and most can be switched off for a cleaner dial.",
-         themes=["Amber CRT", "EL yellow-green", "Yellow mono", "VFD", "Nixie", "Red LED", "EL blue-green"], alts=[3, 4]),
+         themes=["Amber CRT", "EL yellow-green", "Yellow mono", "VFD", "Nixie", "Red LED", "EL blue-green"]),
     dict(slug="gauge-glass", key="gaugeglass", name="Gauge Glass", accent="#0E7490",
          tagline="Skeleton hands over an LCD time, with four glass level gauges for your data.",
          intro=["Gauge Glass mixes two kinds of watch. Skeleton hands sweep over a tick ring, and behind them sits an LCD-style "
@@ -115,7 +115,7 @@ FACES = [
          change="Each gauge and the date line can show a different reading, or nothing. The gauges take readings that fill a level: "
                 "steps, floors, intensity minutes, Body Battery™, stress, Pulse Ox, sleep score, battery, battery days, rain chance "
                 "or solar intensity. The date line shows the date, ISO week, a second time zone or your next calendar event.",
-         themes=GENERIC, alts=[1, 2]),
+         themes=GENERIC),
     dict(slug="duo-dial", key="duodial", name="Duo Dial", accent="#15803D",
          tagline="Analog hands and an LCD window on one dial, like the analog-digital sports watches of the 80s and 90s.",
          intro=["Duo Dial is an analog-digital face. The hands run over a textured dial, with a date window, two sub-dials "
@@ -128,8 +128,7 @@ FACES = [
          change="The sub-dials take readings that fill a scale: steps, floors, intensity minutes, Body Battery™, stress, Pulse Ox, "
                 "sleep score, battery, battery days, rain chance or solar intensity. The LCD window's two values, the date window "
                 "and the battery display are set from your phone too.",
-         themes=["Midnight navy", "Petrol teal", "Racing green", "Anthracite slate", "Oxblood", "Chocolate", "Deep violet", "Black"],
-         alts=[1, 4]),
+         themes=["Midnight navy", "Petrol teal", "Racing green", "Anthracite slate", "Oxblood", "Chocolate", "Deep violet", "Black"]),
 ]
 
 COMMON = ("Also in the phone settings: 12 or 24 hour time or the watch's setting, a leading zero for 12 h, seconds on or off, "
@@ -208,11 +207,11 @@ def index():
 
 
 def face(f):
-    themes = [0] + f["alts"]
+    themes = range(len(f["themes"]))
     swatches = "\n".join(
         f'      <button type="button" data-active="{img(f, "venu445mm.png" if t == 0 else f"venu445mm-theme{t}.png")}" '
         f'aria-pressed="{"true" if t == 0 else "false"}"><img src="{img(f, "venu445mm.png" if t == 0 else f"venu445mm-theme{t}.png")}" '
-        f'width="64" height="64" alt="">{e(f["themes"][t])}</button>' for t in themes)
+        f'width="64" height="64" alt="">{" ".join(f"<span class=nw>{e(w)}</span>" if "-" in w else e(w) for w in f["themes"][t].split())}</button>' for t in themes)
     sizes = "\n".join(
         f'    <figure><img class="dial" src="{img(f, p + ".png")}" width="{px}" height="{px}" style="width:{px * 100 / 454:.1f}%" '
         f'alt="{e(f["name"])} on the {e(label)}"><figcaption>{e(label)}</figcaption></figure>' for p, label, px in SIZES)
@@ -232,10 +231,9 @@ def face(f):
     <p class="lede">{e(f['tagline'])}</p>
     {store(f)}
     {''.join(f'<p>{e(p)}</p>' for p in f['intro'])}
-    <div class="colours" role="group" aria-label="Colours">
+    <div class="colours" role="group" aria-label="Colours ({len(f['themes'])})">
 {swatches}
     </div>
-    <p class="note">In {len(f['themes'])} colours: {e(', '.join(f['themes']))}.</p>
   <section class="detail">
     <h2>On the face</h2>
     <ul>{''.join(f'<li>{e(s)}</li>' for s in f['shows'])}</ul>
