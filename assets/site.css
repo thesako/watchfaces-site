@@ -16,13 +16,15 @@
   --measure: 62ch;
 }
 
+/* Mobile first: the base rules are the phone layout; wider screens add columns below. */
+
 * { box-sizing: border-box; }
 
-html { background: var(--steel); color: var(--ink); }
+html { background: var(--steel); color: var(--ink); -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  font: 400 18px/1.6 "Saira", system-ui, sans-serif;
+  font: 400 17px/1.6 "Saira", system-ui, sans-serif;
   font-stretch: 94%;
   -webkit-font-smoothing: antialiased;
 }
@@ -33,17 +35,17 @@ a:hover { text-decoration-thickness: 2px; }
 
 h1, h2 { font-stretch: 78%; font-weight: 600; line-height: 1.1; letter-spacing: -0.005em; margin: 0; }
 h1 { font-size: clamp(40px, 6vw, 64px); }
-h2 { font-size: 28px; }
+h2 { font-size: 26px; }
 
 /* header and footer */
 .top, .foot, main { max-width: 1200px; margin: 0 auto; padding: 0 var(--gutter); }
-.top { display: flex; justify-content: space-between; align-items: baseline; padding-top: 28px; padding-bottom: 28px; }
-.mark { text-decoration: none; font-stretch: 78%; font-size: 22px; }
+.top { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; padding-bottom: 16px; }
+.mark { text-decoration: none; font-stretch: 78%; font-size: 20px; padding: 10px 0; }
 .mark b { font-weight: 700; }
-.top nav { display: flex; gap: 28px; }
-.top nav a { text-decoration: none; color: var(--graphite); }
+.top nav { display: flex; gap: 8px; margin-right: -10px; }
+.top nav a { text-decoration: none; color: var(--graphite); padding: 10px; }
 .top nav a:hover { color: var(--ink); }
-.foot { margin-top: 120px; padding-top: 28px; padding-bottom: 48px; background: linear-gradient(var(--rule), var(--rule)) var(--gutter) 0 / calc(100% - 2 * var(--gutter)) 1px no-repeat; color: var(--graphite); font-size: 15px; }
+.foot { margin-top: 96px; padding-top: 28px; padding-bottom: 40px; background: linear-gradient(var(--rule), var(--rule)) var(--gutter) 0 / calc(100% - 2 * var(--gutter)) 1px no-repeat; color: var(--graphite); font-size: 15px; }
 .foot p { max-width: var(--measure); margin: 0 0 8px; }
 
 /* the dial: a screenshot cut round, with a hairline ring standing off it like a bezel */
@@ -59,76 +61,85 @@ h2 { font-size: 28px; }
 }
 
 /* home */
-.intro { padding: 56px 0 72px; max-width: 760px; }
-.intro p { font-size: 22px; color: var(--graphite); max-width: 40ch; margin: 20px 0 0; }
+.intro { padding: 24px 0 48px; max-width: 760px; }
+.intro p { font-size: 19px; color: var(--graphite); max-width: 40ch; margin: 16px 0 0; }
 
-.grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 88px 64px; }
+.grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 64px; }
+.grid li { max-width: 380px; }
 .grid a { text-decoration: none; display: block; }
 .grid .dial { transition: outline-color .15s; }
 .grid a:hover .dial, .grid a:focus-visible .dial { outline-color: var(--ink); }
 .grid a:focus-visible { outline: none; }
-.grid h2 { margin-top: 32px; font-size: 30px; }
+.grid h2 { margin-top: 28px; font-size: 28px; }
 .grid p { margin: 6px 0 0; color: var(--graphite); max-width: 34ch; }
 
 /* face page */
-.face { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 0 80px; padding-top: 40px; }
-.show { grid-row: span 2; align-self: start; position: sticky; top: 32px; }
-.show .big { max-width: 520px; }
-.mode { display: inline-flex; margin-top: 36px; border: 1px solid var(--rule); border-radius: 999px; padding: 3px; }
+.face { padding-top: 16px; }
+.head { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; }
+.show .big { max-width: 420px; margin-left: 8px; }
+.mode { display: inline-flex; margin-top: 28px; border: 1px solid var(--rule); border-radius: 999px; padding: 3px; }
 .mode button, .colours button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
-.mode button { padding: 6px 18px; border-radius: 999px; font-size: 16px; color: var(--graphite); }
+.mode button { min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 16px; color: var(--graphite); }
 .mode button[aria-pressed="true"] { background: var(--ink); color: var(--steel); }
 
 .about h1 { font-size: clamp(48px, 7vw, 84px); }
-.lede { font-size: 22px; color: var(--graphite); max-width: 36ch; margin: 16px 0 28px; }
+.lede { font-size: 19px; color: var(--graphite); max-width: 36ch; margin: 14px 0 24px; }
 .about > p { max-width: var(--measure); }
 .soon, .store { font-weight: 500; padding-left: 14px; border-left: 3px solid var(--accent); }
 .store a { font-weight: 600; }
 
-.colours { display: flex; gap: 28px; margin-top: 40px; flex-wrap: wrap; }
-.colours button { display: grid; justify-items: center; gap: 10px; font-size: 15px; color: var(--graphite); }
+.colours { display: flex; gap: 20px; margin-top: 32px; flex-wrap: wrap; }
+.colours button { display: grid; justify-items: center; gap: 10px; padding: 4px; font-size: 15px; color: var(--graphite); }
 .colours img { width: 64px; height: 64px; border-radius: 50%; background: #000; outline: 1px solid var(--rule); outline-offset: 4px; }
 .colours button[aria-pressed="true"] { color: var(--ink); }
 .colours button[aria-pressed="true"] img { outline: 2px solid var(--accent); }
 .note { font-size: 15px; color: var(--graphite); margin-top: 16px; }
 
-.detail { grid-column: 2; max-width: var(--measure); }
-.detail h2 { margin: 48px 0 12px; }
-.detail { margin-top: 8px; }
+.detail { max-width: var(--measure); }
+.detail h2 { margin: 44px 0 12px; }
 .detail ul { padding-left: 1.1em; margin: 0; }
 .detail li { margin: 6px 0; }
 .detail li::marker { color: var(--accent); }
 
-.sizes { grid-column: 1 / -1; margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--rule); }
-.sizes .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; align-items: end; margin-top: 32px; }
+.sizes { margin-top: 72px; padding-top: 36px; border-top: 1px solid var(--rule); }
+.sizes .row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 24px; align-items: end; margin-top: 28px; }
 .sizes figure { margin: 0; }
 .sizes .dial { margin: 0 auto; outline-offset: 5px; }
-.sizes figcaption { margin-top: 18px; text-align: center; font-size: 15px; color: var(--graphite); }
-.back { grid-column: 1 / -1; margin-top: 56px; }
+.sizes figcaption { margin-top: 16px; text-align: center; font-size: 15px; color: var(--graphite); }
+.pager { display: flex; flex-direction: column; gap: 4px; margin-top: 64px; }
+.pager a { padding: 8px 0; }
 
 /* help */
-.help { max-width: var(--measure); padding-top: 40px; }
-.help h2 { margin: 52px 0 12px; }
+.help { max-width: var(--measure); padding-top: 16px; }
+.help h2 { margin: 48px 0 12px; }
 .help ul { padding-left: 1.1em; }
 .help li { margin: 6px 0; }
 
-@media (max-width: 960px) {
-  .grid { grid-template-columns: repeat(2, 1fr); gap: 64px 40px; }
-  .face { grid-template-columns: 1fr; }
-  .show { grid-row: auto; position: static; }
-  .about { margin-top: 40px; }
-  .show .big { max-width: 420px; }
-  .detail { grid-column: 1; }
-  .sizes .row { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+@media (min-width: 600px) {
+  body { font-size: 18px; }
+  .top { padding-top: 24px; padding-bottom: 24px; }
+  .mark { font-size: 22px; }
+  .top nav { gap: 16px; }
+  .intro { padding: 48px 0 64px; }
+  .intro p, .lede { font-size: 22px; }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 72px 40px; }
+  .grid li { max-width: none; }
+  .face, .help { padding-top: 32px; }
+  .pager { flex-direction: row; justify-content: space-between; gap: 24px; }
+  .foot { margin-top: 120px; padding-bottom: 48px; }
 }
 
-@media (max-width: 560px) {
-  body { font-size: 17px; }
-  .grid { grid-template-columns: 1fr; }
-  .grid li { max-width: 360px; }
-  .top nav { gap: 18px; }
-  .intro { padding: 32px 0 48px; }
-  .intro p, .lede { font-size: 19px; }
+@media (min-width: 960px) {
+  h2 { font-size: 28px; }
+  .grid { grid-template-columns: repeat(3, 1fr); gap: 88px 64px; }
+  .grid h2 { font-size: 30px; }
+  .head { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 40px 80px; }
+  .show { align-self: start; position: sticky; top: 32px; display: grid; justify-items: center; }
+  .show .big { max-width: 520px; margin-left: auto; margin-right: auto; }
+  .mode { margin-top: 36px; }
+  .sizes { margin-top: 96px; padding-top: 40px; }
+  .sizes .row { grid-template-columns: repeat(4, 1fr); gap: 48px; }
+  .pager { margin-top: 80px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

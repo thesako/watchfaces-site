@@ -139,7 +139,7 @@ COMMON = ("Also in the phone settings: 12 or 24 hour time or the watch's setting
 
 
 def e(s):
-    return escape(s, quote=True)
+    return escape(s, quote=True).replace(" mm", "\u00a0mm")
 
 
 def page(title, desc, body, path, image="/assets/faces/duodial/hero-1440x720.jpg"):
@@ -216,7 +216,10 @@ def face(f):
     sizes = "\n".join(
         f'    <figure><img class="dial" src="{img(f, p + ".png")}" width="{px}" height="{px}" style="width:{px * 100 / 454:.1f}%" '
         f'alt="{e(f["name"])} on the {e(label)}"><figcaption>{e(label)}</figcaption></figure>' for p, label, px in SIZES)
+    i = FACES.index(f)
+    prev, nxt = FACES[i - 1], FACES[(i + 1) % len(FACES)]
     body = f"""<article class="face" style="--accent:{f['accent']}">
+ <div class="head">
   <div class="show">
     <img class="dial big" id="dial" src="{img(f, 'venu445mm.png')}" width="454" height="454" alt="{e(f['name'])} watch face, active">
     <div class="mode" role="group" aria-label="Screen mode">
@@ -233,7 +236,6 @@ def face(f):
 {swatches}
     </div>
     <p class="note">In {len(f['themes'])} colours: {e(', '.join(f['themes']))}.</p>
-  </div>
   <section class="detail">
     <h2>On the face</h2>
     <ul>{''.join(f'<li>{e(s)}</li>' for s in f['shows'])}</ul>
@@ -244,13 +246,19 @@ def face(f):
     <h2>Watches</h2>
     <p>{e(', '.join(WATCHES))}. The D2™ Air X15 runs it too.</p>
   </section>
+  </div>
+ </div>
   <section class="sizes">
     <h2>On each screen size</h2>
     <div class="row">
 {sizes}
     </div>
   </section>
-  <p class="back"><a href="/#faces">All faces</a></p>
+  <nav class="pager" aria-label="Other faces">
+    <a href="/{prev['slug']}/">Previous: {e(prev['name'])}</a>
+    <a href="/#faces">All faces</a>
+    <a href="/{nxt['slug']}/">Next: {e(nxt['name'])}</a>
+  </nav>
 </article>
 <script src="/assets/face.js"></script>"""
     return page(f"{f['name']}, a watch face for Venu 4 and Instinct 3 AMOLED", f["tagline"], body, f"/{f['slug']}/",
