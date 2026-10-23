@@ -85,8 +85,14 @@ h2 { font-size: 26px; }
 .about h1 { font-size: clamp(48px, 7vw, 84px); }
 .lede { font-size: 19px; color: var(--graphite); max-width: 36ch; margin: 14px 0 24px; }
 .about > p { max-width: var(--measure); }
-.soon, .store { font-weight: 500; padding-left: 14px; border-left: 3px solid var(--accent); }
-.store a { font-weight: 600; }
+.soon { font-weight: 500; padding-left: 14px; border-left: 3px solid var(--accent); }
+/* store link as a button in the face's accent (every accent passes 4.5:1 with white) */
+.store { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.store .get { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px;
+  background: var(--accent); color: #fff; font-weight: 600; text-decoration: none; }
+.store .get:hover { filter: brightness(1.1); }
+.store .get:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.store span { color: var(--graphite); font-weight: 500; }
 
 .colours { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 20px 8px; margin-top: 32px; max-width: 560px; }
 .colours button { display: grid; justify-items: center; align-content: start; gap: 10px; padding: 4px; font-size: 15px; line-height: 1.3; text-align: center; color: var(--graphite); }

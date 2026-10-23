@@ -191,7 +191,7 @@ def store(f):
     url = STORE.get(f["slug"])
     if not url:
         return '<p class="soon">Coming soon to the Connect IQ Store. Free.</p>'
-    return f'<p class="store"><a href="{e(url)}">Get {e(f["name"])} on the Connect IQ Store</a> Free.</p>'
+    return f'<p class="store"><a class="get" href="{e(url)}">Get {e(f["name"])} on the Connect IQ Store</a> <span>Free</span></p>'
 
 
 def img(f, file):
