@@ -7,7 +7,17 @@ ROOT = Path(__file__).parent
 EMAIL = "watchfaces@thesako.com"
 
 # Store page per face once it is live, e.g. "https://apps.garmin.com/apps/<app id>". None = not live yet.
-STORE = {}
+STORE = {   # Connect IQ Store listings, all approved 1.0.0 (2026-10-23)
+    "range-card": "https://apps.garmin.com/apps/6c57c55c-b3fb-4cad-ade0-dd7f837776be",
+    "signal-box": "https://apps.garmin.com/apps/9dc61c19-2285-4a63-b4bf-71d9b0b2a200",
+    "field-kit": "https://apps.garmin.com/apps/f1fb15ff-639c-4b35-8d0b-65592755a69e",
+    "conduit": "https://apps.garmin.com/apps/b8085dd1-800e-4def-b005-6077ea7ec815",
+    "week-grid": "https://apps.garmin.com/apps/8ecffb50-8316-46db-b0dd-816a1d264cc9",
+    "gold-rule": "https://apps.garmin.com/apps/fa0992ca-6094-404b-91ef-dba249592ae3",
+    "track-hybrid": "https://apps.garmin.com/apps/d4b8252c-26a8-441c-8cea-15db26b29808",
+    "gauge-glass": "https://apps.garmin.com/apps/72649362-53da-43d1-afdc-57e1d0586af6",
+    "duo-dial": "https://apps.garmin.com/apps/36290366-f1c0-4e9e-bd33-a482f75a0fa9",
+}
 
 WATCHES = ["Venu® 4 45 mm", "Venu® 4 41 mm", "Instinct® 3 AMOLED 50 mm", "Instinct® 3 AMOLED 45 mm"]
 SIZES = [("venu445mm", "Venu 4 45 mm", 454), ("venu441mm", "Venu 4 41 mm", 390),
