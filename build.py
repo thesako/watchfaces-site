@@ -22,6 +22,9 @@ STORE = {   # Connect IQ Store listings, all approved 1.0.0 (2026-10-23)
 WATCHES = ["Venu® 4 45 mm", "Venu® 4 41 mm", "Instinct® 3 AMOLED 50 mm", "Instinct® 3 AMOLED 45 mm"]
 SIZES = [("venu445mm", "Venu 4 45 mm", 454), ("venu441mm", "Venu 4 41 mm", 390),
          ("instinct3amoled50mm", "Instinct 3 AMOLED 50 mm", 416), ("instinct3amoled45mm", "Instinct 3 AMOLED 45 mm", 390)]
+APPROACH_WATCHES = ["Approach® S70 47 mm", "Approach® S70 42 mm", "Approach® S72 47 mm", "Approach® S72 43 mm"]
+APPROACH_SIZES = [("approachs7047mm", "Approach S70 47 mm", 454), ("approachs7042mm", "Approach S70 42 mm", 390),
+                  ("approachs7247mm", "Approach S72 47 mm", 454), ("approachs7243mm", "Approach S72 43 mm", 416)]
 GENERIC = ["Original", "Cyan", "Lime", "Mono"]
 
 FACES = [
@@ -130,21 +133,22 @@ FACES = [
          tagline="Analog hands and an LCD window on one dial, like the analog-digital sports watches of the 80s and 90s.",
          intro=["Duo Dial is an analog-digital face. The hands run over a textured dial, with a date window, two sub-dials "
                 "and an LCD window with segment digits set into it."],
-         shows=["Hour, minute and seconds hands over a textured dial",
+         approach=True,
+         shows=["Hour, minute and seconds hands over a textured dial, open or filled. The minute hand moves every second, as on a real watch",
                 "Date window: the date, the ISO week or a second time zone",
                 "Two sub-dials with a needle and value: Body Battery™ and stress to start with",
                 "LCD window with the digital time, two values and status icons for Bluetooth, alarms, notifications and do not disturb",
                 "Battery with days left or percent"],
          change="The sub-dials take readings that fill a scale: steps, floors, intensity minutes, Body Battery™, stress, Pulse Ox, "
                 "sleep score, battery, battery days, rain chance or solar intensity. The LCD window's two values, the date window "
-                "and the battery display are set from your phone too.",
+                "and the battery display are set from your phone too, and so is the hand style, open or filled.",
          themes=["Midnight navy", "Petrol teal", "Racing green", "Anthracite slate", "Oxblood", "Chocolate", "Deep violet", "Black"]),
 ]
 
 COMMON = ("Also in the phone settings: 12 or 24 hour time or the watch's setting, a leading zero for 12 h, seconds on or off, "
           "the date style (TUE 14 OCT, 14 OCT TUE, TUE 10/14 or 2026-10-14), the always-on style (Rich, Minimal or Time only), "
-          "units, the first day of the week and a second time zone. On a Venu 4, touch and hold a field to open the matching "
-          "screen on the watch.")
+          "units, the first day of the week and a second time zone: pick a city and it follows daylight saving, or set your own offset. "
+          "On a touch watch, touch and hold a field to open the matching screen on the watch.")
 
 
 def e(s):
@@ -180,7 +184,7 @@ def page(title, desc, body, path, image="/assets/faces/duodial/hero-1440x720.jpg
 </main>
 <footer class="foot">
   <p>Made by thesako. Questions: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-  <p>Not affiliated with or endorsed by Garmin. Garmin, Connect IQ, Venu, Instinct, Body Battery and D2 are trademarks of Garmin Ltd. or its subsidiaries. Set in Saira, under the <a href="/assets/fonts/OFL.txt">SIL Open Font License</a>.</p>
+  <p>Not affiliated with or endorsed by Garmin. Garmin, Connect IQ, Venu, Instinct, Approach, Body Battery and D2 are trademarks of Garmin Ltd. or its subsidiaries. Set in Saira, under the <a href="/assets/fonts/OFL.txt">SIL Open Font License</a>.</p>
 </footer>
 </body>
 </html>
@@ -224,7 +228,7 @@ def face(f):
         f'width="64" height="64" alt="">{" ".join(f"<span class=nw>{e(w)}</span>" if "-" in w else e(w) for w in f["themes"][t].split())}</button>' for t in themes)
     sizes = "\n".join(
         f'    <figure><img class="dial" src="{img(f, p + ".png")}" width="{px}" height="{px}" style="width:{px * 100 / 454:.1f}%" '
-        f'alt="{e(f["name"])} on the {e(label)}"><figcaption>{e(label)}</figcaption></figure>' for p, label, px in SIZES)
+        f'alt="{e(f["name"])} on the {e(label)}"><figcaption>{e(label)}</figcaption></figure>' for p, label, px in SIZES + (APPROACH_SIZES if f.get("approach") else []))
     i = FACES.index(f)
     prev, nxt = FACES[i - 1], FACES[(i + 1) % len(FACES)]
     body = f"""<article class="face" style="--accent:{f['accent']}">
@@ -252,7 +256,7 @@ def face(f):
     <p>{e(COMMON)}</p>
     <p>Settings are changed in the Connect IQ Store app or the Garmin Connect app on your phone. <a href="/help/">How settings, always-on mode and missing values work</a>.</p>
     <h2>Watches</h2>
-    <p>{e(', '.join(WATCHES))}. The D2™ Air X15 runs it too.</p>
+    <p>{e(', '.join(WATCHES + (APPROACH_WATCHES if f.get("approach") else [])))}. The D2™ Air X15 runs it too.</p>
   </section>
   </div>
  </div>
@@ -269,7 +273,7 @@ def face(f):
   </nav>
 </article>
 <script src="/assets/face.js"></script>"""
-    return page(f"{f['name']}, a watch face for Venu 4 and Instinct 3 AMOLED", f["tagline"], body, f"/{f['slug']}/",
+    return page(f"{f['name']}, a watch face for Venu 4{', Instinct 3 AMOLED and Approach S70 and S72' if f.get('approach') else ' and Instinct 3 AMOLED'}", f["tagline"], body, f"/{f['slug']}/",
                 img(f, "hero-1440x720.jpg"))
 
 
@@ -302,13 +306,18 @@ def help_page():
   <p>When the watch is set to keep the screen on, each face switches to a dimmed, simpler view when you lower your wrist. It updates once a minute and moves a few pixels now and then to protect the AMOLED screen. Seconds only show while the watch is active. Each face has three always-on styles: Rich, Minimal and Time only.</p>
 
   <h2 id="touch">Touch and hold</h2>
-  <p>On a Venu 4, touch and hold a field to open the matching screen on the watch, such as heart rate or Body Battery. The Instinct 3 AMOLED has no touch screen, so this doesn't apply there.</p>
+  <p>On a Venu 4, or an Approach S70 or S72 with Duo Dial, touch and hold a field to open the matching screen on the watch, such as heart rate or Body Battery. The Instinct 3 AMOLED has no touch screen, so this doesn't apply there.</p>
+
+  <h2 id="time-zone">Second time zone</h2>
+  <p>In a face's settings, pick a city and the second time zone follows that city's daylight saving by itself. For anywhere else, choose a custom offset and a label of up to four letters. A custom offset doesn't change with daylight saving.</p>
 
   <h2 id="watches">Supported watches</h2>
   <ul>{watches}<li>D2™ Air X15, which shares the Venu 4 45 mm profile</li></ul>
+  <p>Duo Dial also runs on the Approach S70 42 mm and 47 mm and the Approach S72 43 mm and 47 mm.</p>
 
   <h2 id="privacy">Privacy</h2>
   <p>The faces collect nothing and send nothing; they only show data the watch already has. This site sets no cookies and runs no analytics.</p>
+  <p>The store lists a "Communication &amp; Data Transmission" permission for the faces. That is the store's name for reading data other apps provide on the watch, such as the values in a field. The faces use no internet connection.</p>
   <p>Health readings on the faces are for general information and not for medical use.</p>
 
   <h2 id="contact">Contact</h2>
