@@ -27,6 +27,11 @@ APPROACH_SIZES = [("approachs7047mm", "Approach S70 47 mm", 454), ("approachs704
                   ("approachs7247mm", "Approach S72 47 mm", 454), ("approachs7243mm", "Approach S72 43 mm", 416)]
 GENERIC = ["Original", "Cyan", "Lime", "Mono"]
 
+HYBRID_COMMON = ("Also in the phone settings: the colour and seconds on or off. The digital time follows your watch's 12 or 24 hour setting, "
+                 "and units follow the watch too. On a touch watch, touch and hold a field to open the matching screen on the watch.")
+ANALOG_COMMON = ("Also in the phone settings: the colour and seconds on or off. Units follow your watch's setting. "
+                 "On a touch watch, touch and hold a field to open the matching screen on the watch.")
+
 FACES = [
     dict(slug="range-card", key="rangecard", name="Range Card", accent="#C2410C",
          tagline="A digital face with thirteen data slots around a big, clear time.",
@@ -143,6 +148,83 @@ FACES = [
                 "sleep score, battery, battery days, rain chance or solar intensity. The LCD window's two values, the date window "
                 "and the battery display are set from your phone too, and so is the hand style, open or filled.",
          themes=["Midnight navy", "Petrol teal", "Racing green", "Anthracite slate", "Oxblood", "Chocolate", "Deep violet", "Black"]),
+    dict(slug="day-frame", key="dayframe", name="Day Frame", accent="#C2410C",
+         tagline="Day, date, weather and your next event on a framed analog dial with a digital time.",
+         intro=["Day Frame is an analog-digital hybrid for the working day. Baton hands run over a dark dial with a minute track, "
+                "with two sub-dials on either side of the centre and a digital time at 6 o'clock."],
+         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
+                "Day and date windows under 12",
+                "Current weather and a top line: your next calendar event to start with",
+                "Two sub-dials with needles: battery days and steps to start with",
+                "Digital time with seconds, a phone-connected icon and a notification bell"],
+         change="The top line and both sub-dials can be changed from your phone, and each can be switched off. The top line takes your next event, "
+                "sunset, sunrise, temperature, heart rate, resting heart rate, Body Battery™ or stress. The sub-dials take battery, steps, "
+                "Body Battery™, stress, intensity minutes, floors or sleep score.",
+         common=HYBRID_COMMON, themes=["Orange", "Amber", "Blue", "Lime"]),
+    dict(slug="split-ring", key="splitring", name="Split Ring", accent="#C2410C",
+         tagline="Steps and battery fill a segmented ring around analog hands and a digital time.",
+         intro=["Split Ring is built around one wide segmented ring. The left half fills with steps toward your goal and the right half "
+                "with battery days, with the values printed beside it."],
+         shows=["Hour, minute and seconds hands over a fine patterned dial. The minute hand moves every second, as on a real watch",
+                "Segmented ring: steps on the left and battery days on the right to start with",
+                "Temperature with the day's high and low",
+                "Digital time with seconds, a phone-connected icon and a notification bell",
+                "Weekday and date, and a pill with heart rate to start with"],
+         change="Each side of the ring and the bottom pill can be changed from your phone, and each can be switched off. The ring takes steps, battery, "
+                "Body Battery™, stress, intensity minutes, floors or sleep score. The pill takes heart rate, resting heart rate, intensity minutes, "
+                "floors, respiration or VO2 max.",
+         common=HYBRID_COMMON, themes=["Orange", "Red", "Teal", "Lime"]),
+    dict(slug="day-wheel", key="daywheel", name="Day Wheel", accent="#B91C1C",
+         tagline="A weekday wheel, two rings and a digital time around broad rounded hands.",
+         intro=["Day Wheel has a tool-watch feel. Broad rounded hands run over a dark dial, and a wheel at 3 o'clock lists the week around the date, "
+                "with today marked."],
+         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
+                "Weekday wheel with the date in the middle, always Monday to Sunday",
+                "Two rings: steps toward your goal and Body Battery™ to start with",
+                "Digital time with seconds, a phone-connected icon and a notification bell",
+                "Two values below it: heart rate and battery days to start with"],
+         change="Both rings and both bottom values can be changed from your phone, and each can be switched off. The rings take steps, battery, "
+                "Body Battery™, stress, intensity minutes, floors or sleep score. The bottom values take heart rate, resting heart rate, distance, "
+                "intensity minutes, respiration, VO2 max or battery days.",
+         common=HYBRID_COMMON, themes=["Red", "Orange", "Blue", "Amber"]),
+    dict(slug="full-tank", key="fulltank", name="Full Tank", accent="#B91C1C",
+         tagline="A big Body Battery™ gauge beside analog hands, for seeing how much you have left today.",
+         intro=["Full Tank reads like a fuel gauge. A long curved scale on the left shows Body Battery™ with a pointer, and the value sits large beside it."],
+         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
+                "Curved Body Battery™ gauge with its value",
+                "Weekday and date, with resting heart rate under them to start with",
+                "Stress to the right of centre to start with",
+                "A bottom ring that fills with steps toward your goal, with your heart rate above the count"],
+         change="The line under the date, the value right of centre and the bottom ring can be changed from your phone, and each can be switched off. "
+                "The two values take sunset, sunrise, temperature, resting heart rate, stress or battery days, among others. The ring takes steps, battery, "
+                "stress, intensity minutes, floors, sleep score or Pulse Ox.",
+         common=ANALOG_COMMON, themes=["Red", "Amber", "Teal", "Blue"]),
+    dict(slug="last-light", key="lastlight", name="Last Light", accent="#B45309",
+         tagline="A 24-hour sun bezel and the daylight you have left, on an olive analog dial.",
+         intro=["Last Light is for planning a day outside. A 24-hour bezel shows day and night with a marker for the sun, and the dial counts down "
+                "the daylight left. After sunset it counts the night instead."],
+         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
+                "24-hour day and night bezel with a sun marker",
+                "Daylight left and the sunset time",
+                "Barometric pressure in hPa with eight hours of trend bars",
+                "A sub-dial with altitude and your ascent today to start with",
+                "Digital time with seconds, a phone-connected icon and a notification bell",
+                "Weekday and date, and a pill with heart rate to start with"],
+         change="The right sub-dial and the bottom pill can be changed from your phone, and both can be switched off. The sub-dial takes altitude, temperature, "
+                "heart rate, resting heart rate, Body Battery™, stress, battery days or calories. The pill takes heart rate, resting heart rate, distance, "
+                "intensity minutes, floors, Pulse Ox, respiration or VO2 max.",
+         common=HYBRID_COMMON, themes=["Orange", "Amber", "Coral", "Teal"]),
+    dict(slug="zone-arc", key="zonearc", name="Zone Arc", accent="#4D7C0F",
+         tagline="Your heart-rate zone on a coloured arc beside analog hands and four data dials.",
+         intro=["Zone Arc is for days you train. A coloured arc on the left is split into heart-rate zones 1 to 5, with a pointer showing where you are now."],
+         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
+                "Heart-rate zone arc with a pointer",
+                "Four small dials: Body Battery™, heart rate with its zone, the date and steps",
+                "Battery days along the bottom to start with"],
+         change="The top dial, the bottom dial and the bottom line can be changed from your phone, and each can be switched off. The dials take Body Battery™, "
+                "battery days, stress, intensity minutes, floors, sleep score or steps. The bottom line takes battery days, sunset, sunrise, temperature, "
+                "resting heart rate, Body Battery™, stress or steps.",
+         common=ANALOG_COMMON, themes=["Lime", "Teal", "Amber", "Orange"]),
 ]
 
 COMMON = ("Also in the phone settings: 12 or 24 hour time or the watch's setting, a leading zero for 12 h, seconds on or off, "
@@ -208,16 +290,16 @@ def index():
       <img class="dial" src="{img(f, 'venu445mm.png')}" width="454" height="454" alt="{e(f['name'])} watch face">
       <h2>{e(f['name'])}</h2>
     </a>
-    <p>{e(f['tagline'])}</p>
+    <p>{e(f['tagline'])}{'' if STORE.get(f['slug']) else ' Coming soon.'}</p>
   </li>""" for f in FACES)
     body = f"""<section class="intro">
   <h1>Watch faces for the Venu 4 and Instinct 3 AMOLED</h1>
-  <p>Nine faces, free on the Connect IQ Store. Each one has a dimmed always-on view, and you choose most of what it shows from your phone.</p>
+  <p>Fifteen faces: nine free on the Connect IQ Store now and six more coming soon. Each one has a dimmed always-on view, and you choose most of what it shows from your phone.</p>
 </section>
 <ul class="grid" id="faces">
 {cards}
 </ul>"""
-    return page("thesako watch faces", "Nine free watch faces for the Garmin Venu 4 and Instinct 3 AMOLED.", body, "/")
+    return page("thesako watch faces", "Free watch faces for the Garmin Venu 4 and Instinct 3 AMOLED.", body, "/")
 
 
 def face(f):
@@ -253,7 +335,7 @@ def face(f):
     <ul>{''.join(f'<li>{e(s)}</li>' for s in f['shows'])}</ul>
     <h2>What you can change</h2>
     <p>{e(f['change'])}</p>
-    <p>{e(COMMON)}</p>
+    <p>{e(f.get('common', COMMON))}</p>
     <p>Settings are changed in the Connect IQ Store app or the Garmin Connect app on your phone. <a href="/help/">How settings, always-on mode and missing values work</a>.</p>
     <h2>Watches</h2>
     <p>{e(', '.join(WATCHES + (APPROACH_WATCHES if f.get("approach") else [])))}. The D2™ Air X15 runs it too.</p>
@@ -281,7 +363,7 @@ def help_page():
     watches = "".join(f"<li>{e(w)}</li>" for w in WATCHES)
     body = f"""<article class="help">
   <h1>Help</h1>
-  <p class="lede">Answers for all nine faces. If yours isn't here, write to <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+  <p class="lede">Answers for all the faces. If yours isn't here, write to <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
 
   <h2 id="settings">Changing a face's settings</h2>
   <p>Settings live on your phone, not on the watch. Open the Connect IQ Store app or the Garmin Connect app, find the face among the watch faces installed on your watch, and open its settings. The watch picks up the changes at its next sync with the phone.</p>
@@ -303,13 +385,13 @@ def help_page():
   <p>Battery shows the days left, such as 6D, when the watch has an estimate. It shows percent while charging, when less than a day is left, or when the watch has no estimate. Most faces let you pick percent instead.</p>
 
   <h2 id="always-on">Always-on mode</h2>
-  <p>When the watch is set to keep the screen on, each face switches to a dimmed, simpler view when you lower your wrist. It updates once a minute and moves a few pixels now and then to protect the AMOLED screen. Seconds only show while the watch is active. Each face has three always-on styles: Rich, Minimal and Time only.</p>
+  <p>When the watch is set to keep the screen on, each face switches to a dimmed, simpler view when you lower your wrist. It updates once a minute and moves a few pixels now and then to protect the AMOLED screen. Seconds only show while the watch is active. Most faces have three always-on styles: Rich, Minimal and Time only. Day Frame, Split Ring, Day Wheel, Full Tank, Last Light and Zone Arc have one, with outline hands and no data.</p>
 
   <h2 id="touch">Touch and hold</h2>
   <p>On a Venu 4, or an Approach S70 or S72 with Duo Dial, touch and hold a field to open the matching screen on the watch, such as heart rate or Body Battery. The Instinct 3 AMOLED has no touch screen, so this doesn't apply there.</p>
 
   <h2 id="time-zone">Second time zone</h2>
-  <p>In a face's settings, pick a city and the second time zone follows that city's daylight saving by itself. For anywhere else, choose a custom offset and a label of up to four letters. A custom offset doesn't change with daylight saving.</p>
+  <p>In a face's settings, pick a city and the second time zone follows that city's daylight saving by itself. For anywhere else, choose a custom offset and a label of up to four letters. A custom offset doesn't change with daylight saving. Day Frame, Split Ring, Day Wheel, Full Tank, Last Light and Zone Arc have no second time zone.</p>
 
   <h2 id="watches">Supported watches</h2>
   <ul>{watches}<li>D2™ Air X15, which shares the Venu 4 45 mm profile</li></ul>
