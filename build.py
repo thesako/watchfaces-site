@@ -299,13 +299,13 @@ def index():
     <p>{e(f['tagline'])}{'' if STORE.get(f['slug']) else ' Coming soon.'}</p>
   </li>""" for f in FACES)
     body = f"""<section class="intro">
-  <h1>Watch faces for the Venu 4 and Instinct 3 AMOLED</h1>
-  <p>Fifteen faces, free on the Connect IQ Store. Each one has a dimmed always-on view, and you choose most of what it shows from your phone.</p>
+  <h1>Free watch faces for Garmin watches</h1>
+  <p>Fifteen faces on the Connect IQ Store. Each one has a dimmed always-on view, and you choose most of what it shows from your phone. Each face&#39;s page lists the watches it runs on.</p>
 </section>
 <ul class="grid" id="faces">
 {cards}
 </ul>"""
-    return page("thesako watch faces", "Fifteen free watch faces for the Garmin Venu 4 and Instinct 3 AMOLED.", body, "/")
+    return page("thesako watch faces", "Fifteen free watch faces for Garmin watches, on the Connect IQ Store.", body, "/")
 
 
 def face(f):
