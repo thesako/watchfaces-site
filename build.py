@@ -17,6 +17,12 @@ STORE = {   # Connect IQ Store listings, all approved 1.0.0 (2026-10-23)
     "track-hybrid": "https://apps.garmin.com/apps/d4b8252c-26a8-441c-8cea-15db26b29808",
     "gauge-glass": "https://apps.garmin.com/apps/72649362-53da-43d1-afdc-57e1d0586af6",
     "duo-dial": "https://apps.garmin.com/apps/36290366-f1c0-4e9e-bd33-a482f75a0fa9",
+    "day-frame": "https://apps.garmin.com/apps/0681619e-a415-405e-b667-569fb2671e02",
+    "split-ring": "https://apps.garmin.com/apps/e3c83ae5-2b55-486a-8385-f32e3f446126",
+    "day-wheel": "https://apps.garmin.com/apps/9b67efeb-1af5-4684-85bf-ea9359fa1d5e",
+    "full-tank": "https://apps.garmin.com/apps/42193442-c192-4e58-8e6b-f804b2a74985",
+    "last-light": "https://apps.garmin.com/apps/8152b284-475a-43ca-a994-556e15cd8a85",
+    "zone-arc": "https://apps.garmin.com/apps/4e8d4bf2-6ccb-4cca-b230-b6c11b95e6a9",
 }
 
 WATCHES = ["Venu® 4 45 mm", "Venu® 4 41 mm", "Instinct® 3 AMOLED 50 mm", "Instinct® 3 AMOLED 45 mm"]
@@ -294,12 +300,12 @@ def index():
   </li>""" for f in FACES)
     body = f"""<section class="intro">
   <h1>Watch faces for the Venu 4 and Instinct 3 AMOLED</h1>
-  <p>Fifteen faces: nine free on the Connect IQ Store now and six more coming soon. Each one has a dimmed always-on view, and you choose most of what it shows from your phone.</p>
+  <p>Fifteen faces, free on the Connect IQ Store. Each one has a dimmed always-on view, and you choose most of what it shows from your phone.</p>
 </section>
 <ul class="grid" id="faces">
 {cards}
 </ul>"""
-    return page("thesako watch faces", "Free watch faces for the Garmin Venu 4 and Instinct 3 AMOLED.", body, "/")
+    return page("thesako watch faces", "Fifteen free watch faces for the Garmin Venu 4 and Instinct 3 AMOLED.", body, "/")
 
 
 def face(f):
