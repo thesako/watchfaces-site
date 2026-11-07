@@ -39,6 +39,83 @@ ANALOG_COMMON = ("Also in the phone settings: the colour and seconds on or off. 
                  "On a touch watch, touch and hold a field to open the matching screen on the watch.")
 
 FACES = [
+    dict(slug="day-frame", key="dayframe", name="Day Frame", accent="#C2410C",
+         tagline="Day, date, weather and your next event on a framed analog dial with a digital time.",
+         intro=["Day Frame is an analog-digital hybrid for the working day. Baton hands run over a dark dial with a minute track, "
+                "with two sub-dials on either side of the centre and a digital time at 6 o'clock."],
+         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
+                "Day and date windows under 12",
+                "Current weather and a top line: your next calendar event to start with",
+                "Two sub-dials with needles: battery days and steps to start with",
+                "Digital time with seconds, a phone-connected icon and a notification bell"],
+         change="The top line and both sub-dials can be changed from your phone, and each can be switched off. The top line takes your next event, "
+                "sunset, sunrise, temperature, heart rate, resting heart rate, Body Battery™ or stress. The sub-dials take battery, steps, "
+                "Body Battery™, stress, intensity minutes, floors or sleep score.",
+         common=HYBRID_COMMON, themes=["Orange", "Amber", "Blue", "Lime"]),
+    dict(slug="split-ring", key="splitring", name="Split Ring", accent="#C2410C",
+         tagline="Steps and battery fill a segmented ring around analog hands and a digital time.",
+         intro=["Split Ring is built around one wide segmented ring. The left half fills with steps toward your goal and the right half "
+                "with battery days, with the values printed beside it."],
+         shows=["Hour, minute and seconds hands over a fine patterned dial. The minute hand moves every second, as on a real watch",
+                "Segmented ring: steps on the left and battery days on the right to start with",
+                "Temperature with the day's high and low",
+                "Digital time with seconds, a phone-connected icon and a notification bell",
+                "Weekday and date, and a pill with heart rate to start with"],
+         change="Each side of the ring and the bottom pill can be changed from your phone, and each can be switched off. The ring takes steps, battery, "
+                "Body Battery™, stress, intensity minutes, floors or sleep score. The pill takes heart rate, resting heart rate, intensity minutes, "
+                "floors, respiration or VO2 max.",
+         common=HYBRID_COMMON, themes=["Orange", "Red", "Teal", "Lime"]),
+    dict(slug="day-wheel", key="daywheel", name="Day Wheel", accent="#B91C1C",
+         tagline="A weekday wheel, two rings and a digital time around broad rounded hands.",
+         intro=["Day Wheel has a tool-watch feel. Broad rounded hands run over a dark dial, and a wheel at 3 o'clock lists the week around the date, "
+                "with today marked."],
+         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
+                "Weekday wheel with the date in the middle, always Monday to Sunday",
+                "Two rings: steps toward your goal and Body Battery™ to start with",
+                "Digital time with seconds, a phone-connected icon and a notification bell",
+                "Two values below it: heart rate and battery days to start with"],
+         change="Both rings and both bottom values can be changed from your phone, and each can be switched off. The rings take steps, battery, "
+                "Body Battery™, stress, intensity minutes, floors or sleep score. The bottom values take heart rate, resting heart rate, distance, "
+                "intensity minutes, respiration, VO2 max or battery days.",
+         common=HYBRID_COMMON, themes=["Red", "Orange", "Blue", "Amber"]),
+    dict(slug="full-tank", key="fulltank", name="Full Tank", accent="#B91C1C",
+         tagline="A big Body Battery™ gauge beside analog hands, for seeing how much you have left today.",
+         intro=["Full Tank reads like a fuel gauge. A long curved scale on the left shows Body Battery™ with a pointer, and the value sits large beside it."],
+         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
+                "Curved Body Battery™ gauge with its value",
+                "Weekday and date, with resting heart rate under them to start with",
+                "Stress to the right of centre to start with",
+                "A bottom ring that fills with steps toward your goal, with your heart rate above the count"],
+         change="The line under the date, the value right of centre and the bottom ring can be changed from your phone, and each can be switched off. "
+                "The two values take sunset, sunrise, temperature, resting heart rate, stress or battery days, among others. The ring takes steps, battery, "
+                "stress, intensity minutes, floors, sleep score or Pulse Ox.",
+         common=ANALOG_COMMON, themes=["Red", "Amber", "Teal", "Blue"]),
+    dict(slug="last-light", key="lastlight", name="Last Light", accent="#B45309",
+         tagline="A 24-hour sun bezel and the daylight you have left, on an olive analog dial.",
+         intro=["Last Light is for planning a day outside. A 24-hour bezel shows day and night with a marker for the sun, and the dial counts down "
+                "the daylight left. After sunset it counts the night instead."],
+         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
+                "24-hour day and night bezel with a sun marker",
+                "Daylight left and the sunset time",
+                "Barometric pressure in hPa with eight hours of trend bars",
+                "A sub-dial with altitude and your ascent today to start with",
+                "Digital time with seconds, a phone-connected icon and a notification bell",
+                "Weekday and date, and a pill with heart rate to start with"],
+         change="The right sub-dial and the bottom pill can be changed from your phone, and both can be switched off. The sub-dial takes altitude, temperature, "
+                "heart rate, resting heart rate, Body Battery™, stress, battery days or calories. The pill takes heart rate, resting heart rate, distance, "
+                "intensity minutes, floors, Pulse Ox, respiration or VO2 max.",
+         common=HYBRID_COMMON, themes=["Orange", "Amber", "Coral", "Teal"]),
+    dict(slug="zone-arc", key="zonearc", name="Zone Arc", accent="#4D7C0F",
+         tagline="Your heart-rate zone on a coloured arc beside analog hands and four data dials.",
+         intro=["Zone Arc is for days you train. A coloured arc on the left is split into heart-rate zones 1 to 5, with a pointer showing where you are now."],
+         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
+                "Heart-rate zone arc with a pointer",
+                "Four small dials: Body Battery™, heart rate with its zone, the date and steps",
+                "Battery days along the bottom to start with"],
+         change="The top dial, the bottom dial and the bottom line can be changed from your phone, and each can be switched off. The dials take Body Battery™, "
+                "battery days, stress, intensity minutes, floors, sleep score or steps. The bottom line takes battery days, sunset, sunrise, temperature, "
+                "resting heart rate, Body Battery™, stress or steps.",
+         common=ANALOG_COMMON, themes=["Lime", "Teal", "Amber", "Orange"]),
     dict(slug="range-card", key="rangecard", name="Range Card", accent="#C2410C",
          tagline="A digital face with thirteen data slots around a big, clear time.",
          intro=["Range Card is laid out like a field data card. A light band across the top carries the date. Under the time "
@@ -154,83 +231,6 @@ FACES = [
                 "sleep score, battery, battery days, rain chance or solar intensity. The LCD window's two values, the date window "
                 "and the battery display are set from your phone too, and so is the hand style, open or filled.",
          themes=["Midnight navy", "Petrol teal", "Racing green", "Anthracite slate", "Oxblood", "Chocolate", "Deep violet", "Black"]),
-    dict(slug="day-frame", key="dayframe", name="Day Frame", accent="#C2410C",
-         tagline="Day, date, weather and your next event on a framed analog dial with a digital time.",
-         intro=["Day Frame is an analog-digital hybrid for the working day. Baton hands run over a dark dial with a minute track, "
-                "with two sub-dials on either side of the centre and a digital time at 6 o'clock."],
-         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
-                "Day and date windows under 12",
-                "Current weather and a top line: your next calendar event to start with",
-                "Two sub-dials with needles: battery days and steps to start with",
-                "Digital time with seconds, a phone-connected icon and a notification bell"],
-         change="The top line and both sub-dials can be changed from your phone, and each can be switched off. The top line takes your next event, "
-                "sunset, sunrise, temperature, heart rate, resting heart rate, Body Battery™ or stress. The sub-dials take battery, steps, "
-                "Body Battery™, stress, intensity minutes, floors or sleep score.",
-         common=HYBRID_COMMON, themes=["Orange", "Amber", "Blue", "Lime"]),
-    dict(slug="split-ring", key="splitring", name="Split Ring", accent="#C2410C",
-         tagline="Steps and battery fill a segmented ring around analog hands and a digital time.",
-         intro=["Split Ring is built around one wide segmented ring. The left half fills with steps toward your goal and the right half "
-                "with battery days, with the values printed beside it."],
-         shows=["Hour, minute and seconds hands over a fine patterned dial. The minute hand moves every second, as on a real watch",
-                "Segmented ring: steps on the left and battery days on the right to start with",
-                "Temperature with the day's high and low",
-                "Digital time with seconds, a phone-connected icon and a notification bell",
-                "Weekday and date, and a pill with heart rate to start with"],
-         change="Each side of the ring and the bottom pill can be changed from your phone, and each can be switched off. The ring takes steps, battery, "
-                "Body Battery™, stress, intensity minutes, floors or sleep score. The pill takes heart rate, resting heart rate, intensity minutes, "
-                "floors, respiration or VO2 max.",
-         common=HYBRID_COMMON, themes=["Orange", "Red", "Teal", "Lime"]),
-    dict(slug="day-wheel", key="daywheel", name="Day Wheel", accent="#B91C1C",
-         tagline="A weekday wheel, two rings and a digital time around broad rounded hands.",
-         intro=["Day Wheel has a tool-watch feel. Broad rounded hands run over a dark dial, and a wheel at 3 o'clock lists the week around the date, "
-                "with today marked."],
-         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
-                "Weekday wheel with the date in the middle, always Monday to Sunday",
-                "Two rings: steps toward your goal and Body Battery™ to start with",
-                "Digital time with seconds, a phone-connected icon and a notification bell",
-                "Two values below it: heart rate and battery days to start with"],
-         change="Both rings and both bottom values can be changed from your phone, and each can be switched off. The rings take steps, battery, "
-                "Body Battery™, stress, intensity minutes, floors or sleep score. The bottom values take heart rate, resting heart rate, distance, "
-                "intensity minutes, respiration, VO2 max or battery days.",
-         common=HYBRID_COMMON, themes=["Red", "Orange", "Blue", "Amber"]),
-    dict(slug="full-tank", key="fulltank", name="Full Tank", accent="#B91C1C",
-         tagline="A big Body Battery™ gauge beside analog hands, for seeing how much you have left today.",
-         intro=["Full Tank reads like a fuel gauge. A long curved scale on the left shows Body Battery™ with a pointer, and the value sits large beside it."],
-         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
-                "Curved Body Battery™ gauge with its value",
-                "Weekday and date, with resting heart rate under them to start with",
-                "Stress to the right of centre to start with",
-                "A bottom ring that fills with steps toward your goal, with your heart rate above the count"],
-         change="The line under the date, the value right of centre and the bottom ring can be changed from your phone, and each can be switched off. "
-                "The two values take sunset, sunrise, temperature, resting heart rate, stress or battery days, among others. The ring takes steps, battery, "
-                "stress, intensity minutes, floors, sleep score or Pulse Ox.",
-         common=ANALOG_COMMON, themes=["Red", "Amber", "Teal", "Blue"]),
-    dict(slug="last-light", key="lastlight", name="Last Light", accent="#B45309",
-         tagline="A 24-hour sun bezel and the daylight you have left, on an olive analog dial.",
-         intro=["Last Light is for planning a day outside. A 24-hour bezel shows day and night with a marker for the sun, and the dial counts down "
-                "the daylight left. After sunset it counts the night instead."],
-         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
-                "24-hour day and night bezel with a sun marker",
-                "Daylight left and the sunset time",
-                "Barometric pressure in hPa with eight hours of trend bars",
-                "A sub-dial with altitude and your ascent today to start with",
-                "Digital time with seconds, a phone-connected icon and a notification bell",
-                "Weekday and date, and a pill with heart rate to start with"],
-         change="The right sub-dial and the bottom pill can be changed from your phone, and both can be switched off. The sub-dial takes altitude, temperature, "
-                "heart rate, resting heart rate, Body Battery™, stress, battery days or calories. The pill takes heart rate, resting heart rate, distance, "
-                "intensity minutes, floors, Pulse Ox, respiration or VO2 max.",
-         common=HYBRID_COMMON, themes=["Orange", "Amber", "Coral", "Teal"]),
-    dict(slug="zone-arc", key="zonearc", name="Zone Arc", accent="#4D7C0F",
-         tagline="Your heart-rate zone on a coloured arc beside analog hands and four data dials.",
-         intro=["Zone Arc is for days you train. A coloured arc on the left is split into heart-rate zones 1 to 5, with a pointer showing where you are now."],
-         shows=["Hour, minute and seconds hands. The minute hand moves every second, as on a real watch",
-                "Heart-rate zone arc with a pointer",
-                "Four small dials: Body Battery™, heart rate with its zone, the date and steps",
-                "Battery days along the bottom to start with"],
-         change="The top dial, the bottom dial and the bottom line can be changed from your phone, and each can be switched off. The dials take Body Battery™, "
-                "battery days, stress, intensity minutes, floors, sleep score or steps. The bottom line takes battery days, sunset, sunrise, temperature, "
-                "resting heart rate, Body Battery™, stress or steps.",
-         common=ANALOG_COMMON, themes=["Lime", "Teal", "Amber", "Orange"]),
 ]
 
 COMMON = ("Also in the phone settings: 12 or 24 hour time or the watch's setting, a leading zero for 12 h, seconds on or off, "
